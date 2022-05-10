@@ -1,0 +1,55 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>work_vue</title>
+</head>
+<body>
+    <div id="root" style="width: 600px;margin: 100px auto;">
+        <div class="header">
+            <h2>伟伟到来</h2>
+            <input type="text" placeholder="请输入姓名" v-model.trim="task" @keyup.enter="add(task)">
+        </div>
+        <div class="main">
+            <ul>
+                <li v-for="item in name_list">{{item}}</li>
+            </ul>
+        </div>
+       <div class="footer" v-if="name_list.length != 0 ">
+           <span>
+               <h6>总共有{{name_list.length}}条数据</h6>
+            </span>
+            <button @click="empty">清空</button>
+       </div>
+    </div>
+    <script src="../../vue.js"></script>
+    <script>
+        Vue.createApp({
+            data(){
+                name_list =["xuwei","wei","xu","leilei"]
+                task = ''
+                return{
+                    name_list,
+                    task 
+                }
+            },
+            methods:{
+                add(task){
+                    // this.name_list.push(task)
+                    // console.log("成功调用") 
+                    // this.task = ''
+                    if(task){ 
+                     this.name_list.unshift(task)
+                    this.task = ""}
+                  
+                },
+                empty(){
+                    this.name_list = []
+                }
+            }
+        }).mount('#root')
+    </script>
+</body>
+</html>

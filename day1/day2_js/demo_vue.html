@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>demo_vue_start</title>
+</head>
+
+<body>
+    <div id="root">
+        <input type="text" placeholder="请输入姓名" v-model="name">
+        <input type="text" placeholder="请输入年龄" v-model="age">
+        <h1>姓名为{{name}}</h1>
+        <h1>1+1={{1+20}}</h1>
+        {{age}}
+    </div>
+    <script src="../../vue.js"></script>
+    <script>
+        const componet = {
+            data() {
+                return {
+                    name: 'xuwei',
+                    age: "27"
+                }
+            }
+        }
+        const app = Vue.createApp(componet)
+        app.mount('#root')
+    // const componet = {
+    //   data(){  //这里存放页面需要引用的数据,通过return返回对象
+    //     // data这里定义数据
+    //     let name="xuwei"
+    //     // let vue3Link="https://baidu.com"
+    //     let vue3Link= 'https://v3.cn.vuejs.org/'
+    //     return {
+    //       name,
+    //       vue3Link
+    //     }//对象,装的是属性
+    //   }//语句块，里面装的是js表达式或函数或变量声明
+    // }
+    // // step2 初始化 vue对象
+    // const app = Vue.createApp(componet)
+    // // step3 挂载
+    // app.mount('#root')  //挂载到id=root的元素上，开始操控此元素
+    </script>
+</body>
+
+</html>
